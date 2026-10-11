@@ -104,7 +104,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
           name: MyVPN-debug
-          path: V2rayNG/app/build/outputs/apk/debug/*.apk
+          
+          path: V2rayNG/app/build/outputs/apk/playstore/debug/*.apk
+
           if-no-files-found: error
 
 
