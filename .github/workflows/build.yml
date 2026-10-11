@@ -87,20 +87,21 @@ jobs:
         java-version: '21'
 
   
-    - name: Build APK
-      run: |
-        cd ${{ github.workspace }}/V2rayNG
-        echo "sdk.dir=${ANDROID_HOME}" > local.properties
-        chmod 755 gradlew
-        
-        ./gradlew assembleDebug
+    
+      - name: Build APK
+        run: |
+          cd ${{ github.workspace }}/V2rayNG
+          echo "sdk.dir=${ANDROID_HOME}" > local.properties
+          chmod 755 gradlew
+          ./gradlew assembleDebug
 
-            - name: Upload Debug APK
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: MyVPN-debug
           path: "V2rayNG/app/build/outputs/apk/debug/*.apk"
           if-no-files-found: error
+
           
   sign-and-release:
     needs: build
