@@ -64,7 +64,14 @@ fun MyVpnHomeScreen(
                 TextButton(
                     enabled = configText.isNotBlank(),
                     onClick = {
-                        onAction(MainAction.ImportBatchConfig(configText.trim()))
+                        if (configText.trim().startsWith("https://", ignoreCase = true) ||
+    configText.trim().startsWith("http://", ignoreCase = true)) {
+    if (MyVpnSubscriptionHelper.addSubscription(context, configText)) {
+        onAction(MainAction.UpdateSubscriptions)
+    }
+} else {
+    onAction(MainAction.ImportBatchConfig(configText.trim()))
+}
                         configText = ""
                         showImportDialog = false
                     }
