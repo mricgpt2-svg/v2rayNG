@@ -105,7 +105,7 @@ jobs:
       with:
           name: MyVPN-debug
           
-          path: V2rayNG/app/build/outputs/apk/playstore/debug/*.apk
+          path: V2rayNG/app/build/outputs/apk/playstore/debug/*arm64-v8a.apk
 
           if-no-files-found: error
 
