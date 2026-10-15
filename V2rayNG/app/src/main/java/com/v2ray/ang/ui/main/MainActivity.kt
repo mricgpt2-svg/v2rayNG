@@ -100,7 +100,7 @@ class MainActivity : HelperBaseComponentActivity() {
     @Composable
     override fun ScreenContent() {
         BackHandler { moveTaskToBack(false) }
-        MainScreen(
+        MyVpnHomeScreen(
             mainViewModel = mainViewModel,
             onAction = { action ->
                 when (action) {
